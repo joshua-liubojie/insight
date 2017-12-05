@@ -69,7 +69,8 @@ glpCallStack.prototype.getStack = function() {
   for (var i = 0; i < mostRecentCalls.length; i++) {
     if (!mostRecentCalls[i].formatted) {
       mostRecentCalls[i].name = mostRecentCalls[i].name + " (" + this.helper.getCallSiteDetails(mostRecentCalls[i].callSite) + ")";
-      mostRecentCalls[i].args = JSON.stringify(mostRecentCalls[i].args);
+      // mostRecentCalls[i].args = JSON.stringify(mostRecentCalls[i].args);
+      mostRecentCalls[i].args = "[]";
       mostRecentCalls[i].formatted = true;
     }
  }
@@ -82,7 +83,8 @@ glpCallStack.prototype.getStackDraw = function() {
   for (var i = 0; i < callsSinceDraw.length; i++) {
     if (!callsSinceDraw[i].formatted) {
       callsSinceDraw[i].name = callsSinceDraw[i].name + " (" + this.helper.getCallSiteDetails(callsSinceDraw[i].callSite) + ")";
-      callsSinceDraw[i].args = JSON.stringify(callsSinceDraw[i].args);
+      // callsSinceDraw[i].args = JSON.stringify(callsSinceDraw[i].args);
+      callsSinceDraw[i].args = "[]";
       callsSinceDraw[i].formatted = true;
     }
   }

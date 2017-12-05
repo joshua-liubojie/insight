@@ -39,10 +39,11 @@ contexts.getWebGLContexts = function() {
 
 contexts.sendContexts = function() {
   var c = glpContexts.getWebGLContexts();
+  var data = JSON.stringify(c.map((context)=>({id: context.id, __uuid: context.__uuid, __name: context.__name})));
   window.postMessage({
     "source": "content",
     "type": messageType.GET_CONTEXTS,
-    "data": {"contexts": JSON.stringify(c)}
+    "data": {"contexts": data}
   }, "*");
 }
 
